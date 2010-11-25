@@ -1,6 +1,14 @@
 package PPIx::IndexLines;
 # ABSTRACT: Given a line number, returns some basic information about where in the perl document you are
 
+=head1 NAME
+
+PPIx::IndexLines
+
+=head1 VERSION
+
+=cut
+
 use strict;
 
 use PPI;
@@ -56,3 +64,5 @@ sub index_lines {
 }
 
 sub line_type { $_[0]->{ 'line' } || '' }
+
+1;
