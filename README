@@ -3,7 +3,7 @@ NAME
     about where in the perl document you are
 
 VERSION
-    version 0.01
+    version 0.02
 
 SYNOPSIS
       #!/usr/bin/perl
@@ -42,7 +42,7 @@ METHODS
       <PackageName>::<SubName>
 
 AUTHOR
-    Alan Young <alansyoungiii@gmail.com>
+    Alan Young <harleypig@gmail.com>
 
 COPYRIGHT AND LICENSE
     This software is copyright (c) 2010 by Alan Young.
