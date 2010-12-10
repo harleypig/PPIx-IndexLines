@@ -41,101 +41,6 @@ INSTALLATION
     See perlmodinstall for information and options on installing Perl
     modules.
 
-DUMP
-  TEXT TEMPLATE DUMP
-    fi_varhash: { Dumper $fi_varhash }
-
-    abstract (scalar) Given a line number, returns some basic information
-    about where in the perl document you are
-
-    authors (array): Alan Young <harleypig@gmail.com>
-
-    built_in (unknown): $VAR1 = undef;
-
-    chrome (Dist::Zilla::Chrome::Term)
-    Dist::Zilla::Chrome::Term=HASH(0x3aa5d18) Doesn't appear to be usable in
-    a template.
-
-    distmeta (hash): =item abstract
-
-    $VAR1 = 'Given a line number, returns some basic information about where
-    in the perl document you are';
-
-    author
-        $VAR1 = [ 'Alan Young <harleypig@gmail.com>' ];
-
-    dynamic_config
-        $VAR1 = 0;
-
-    generated_by
-        $VAR1 = 'Dist::Zilla version 4.102346';
-
-    license
-        $VAR1 = 'perl_5';
-
-    meta-spec
-        $VAR1 = { 'version' => 2, 'url' =>
-        'http://github.com/dagolden/cpan-meta/' };
-
-    name
-        $VAR1 = 'PPIx-IndexLines';
-
-    no_index
-        $VAR1 = { 'directory' => [ 't', 'xt' ] };
-
-    provides
-        $VAR1 = { 'PPI::Document' => { 'version' => '0.03', 'file' =>
-        'lib/PPIx/IndexLines.pm' }, 'PPIx::IndexLines' => { 'version' =>
-        '0.03', 'file' => 'lib/PPIx/IndexLines.pm' } };
-
-    release_status
-        $VAR1 = 'stable';
-
-    resources
-        $VAR1 = { 'repository' => { 'web' =>
-        'http://github.com/harleypig/ppix-indexlines', 'url' =>
-        'git://github.com/harleypig/ppix-indexlines.git', 'type' => 'git' },
-        'bugtracker' => { 'web' =>
-        'http://github.com/harleypigs/ppix-indexlines/issues' } };
-
-    version
-        $VAR1 = '0.03';
-
-        files (array of Dist::Zilla::File::????): README
-        lib/PPIx/IndexLines.pm LICENSE CHANGES t/00-compile.t
-        t/author-critic.t t/release-dist-manifest.t t/release-eol.t
-        t/release-has-version.t t/release-kwalitee.t t/release-distmeta.t
-        t/release-no-tabs.t t/release-pod-coverage.t t/release-pod-syntax.t
-        t/author-critic_progressive.t t/000-report-versions.t
-        t/release-synopsis.t t/release-unused-vars.t t/release-pod-spell.t
-        META.json META.yml MANIFEST
-
-        is_trial (scalar): 0
-
-        license (Software::License::????): perl_5
-
-        logger (Log::Dispatchouli::Proxy):
-        Log::Dispatchouli::Proxy=HASH(0x3d6cd10) Doesn't appear to be usable
-        in a template.
-
-        main_module (Dist::Zilla::File::????) name: lib/PPIx/IndexLines.pm
-        added_by: GatherDir (Dist::Zilla::Plugin::GatherDir line 67) mode:
-        420
-
-        main_module_name (scalar): PPIx::IndexLines
-
-        name (scalar): PPIx-IndexLines
-
-        prereqs (Dist::Zilla::Prereqs): Dist::Zilla::Prereqs=HASH(0x3d758d0)
-        Don't know if its usable in a template.
-
-        root: $VAR1 = bless( { 'file_spec_class' => undef, 'volume' => '',
-        'dirs' => [ '.' ] }, 'Path::Class::Dir' );
-
-        root: .
-
-        version (scalar): 0.03
-
 SEE ALSO
     *   PPIx::IndexOffsets
 
@@ -149,14 +54,4 @@ COPYRIGHT AND LICENSE
 
     This is free software; you can redistribute it and/or modify it under
     the same terms as the Perl 5 programming language system itself.
-
-POD ERRORS
-    Hey! The above document had some coding errors, which are explained
-    below:
-
-    Around line 145:
-        '=item' outside of any '=over'
-
-    Around line 291:
-        You forgot a '=back' before '=head1'
 

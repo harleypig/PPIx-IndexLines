@@ -6,32 +6,13 @@ use strict;
 
 use PPI;
 
-# VERSION
-
-=method new
-
-Accepts either a scalar or a scalar reference.  This is passed directly to
-PPI::Document::new, so the same rules as in that method apply.
-
-Basically, if you pass in a scalar, it will be assumed to be a filename and
-said file will be loaded.
-
-Otherwise, a scalar reference is assumed to be a PPI document and will be
-parsed directly.
-
-=cut
+our $VERSION = 0.03;  # VERSION
 
 sub new { PPI::Document->new( $_[ 1 ] ) }
 
 package PPI::Document;
 
 use strict;
-
-=method index_lines
-
-Call this method to index the lines for the new PPI::Document.
-
-=cut
 
 sub index_lines {
 
@@ -76,21 +57,21 @@ sub index_lines {
   }
 } ## end sub index_lines
 
-=method line_type
-
-Call this method with a line number, it will return one of
-
-  BEGIN CHECK UNITCHECK INIT END POD __DATA__ __END__
-
-or
-
-  <PackageName>::<SubName>
-
-=cut
-
 sub line_type { $_[ 0 ]->{ 'line' } || '' }
 
 1;
+
+__END__
+
+=pod
+
+=head1 NAME
+
+PPIx::IndexLines - Given a line number, returns some basic information about where in the perl document you are
+
+=head1 VERSION
+
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -102,9 +83,60 @@ sub line_type { $_[ 0 ]->{ 'line' } || '' }
   $document->index_lines;
   print $document->line_type( +shift );
 
+=head1 METHODS
+
+=head2 new
+
+Accepts either a scalar or a scalar reference.  This is passed directly to
+PPI::Document::new, so the same rules as in that method apply.
+
+Basically, if you pass in a scalar, it will be assumed to be a filename and
+said file will be loaded.
+
+Otherwise, a scalar reference is assumed to be a PPI document and will be
+parsed directly.
+
+=head2 index_lines
+
+Call this method to index the lines for the new PPI::Document.
+
+=head2 line_type
+
+Call this method with a line number, it will return one of
+
+  BEGIN CHECK UNITCHECK INIT END POD __DATA__ __END__
+
+or
+
+  <PackageName>::<SubName>
+
+=head1 INSTALLATION
+
+See perlmodinstall for information and options on installing Perl modules.
+
 =head1 SEE ALSO
 
+=over 4
+
+=item *
+
 L<PPIx::IndexOffsets>
+
+=item *
+
 L<PPIx::LineToSub>
+
+=back
+
+=head1 AUTHOR
+
+Alan Young <harleypig@gmail.com>
+
+=head1 COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2010 by Alan Young.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
 
 =cut
