@@ -2,35 +2,13 @@ package PPIx::IndexLines;
 
 # ABSTRACT: Given a line number, returns some basic information about where in the perl document you are
 
-=head1 NAME
-
-PPIx::IndexLines
-
-=head1 VERSION
-
-=cut
-
-# VERSION
-
-=head1 SYNOPSIS
-
-  #!/usr/bin/perl
-  use strict;
-  use warnings;
-  use PPIx::IndexLines;
-  my $document = PPIx::IndexLines->new( +shift );
-  $document->index_lines;
-  print $document->line_type( +shift );
-
-=cut
-
 use strict;
 
 use PPI;
 
-=head1 METHODS
+# VERSION
 
-=head2 new
+=method new
 
 Accepts either a scalar or a scalar reference.  This is passed directly to
 PPI::Document::new, so the same rules as in that method apply.
@@ -41,20 +19,6 @@ said file will be loaded.
 Otherwise, a scalar reference is assumed to be a PPI document and will be
 parsed directly.
 
-=head2 index_lines
-
-Call this method to index the lines for the new PPI::Document.
-
-=head2 line_type
-
-Call this method with a line number, it will return one of
-
-  BEGIN CHECK UNITCHECK INIT END POD __DATA__ __END__
-
-or
-
-  <PackageName>::<SubName>
-
 =cut
 
 sub new { PPI::Document->new( $_[ 1 ] ) }
@@ -62,6 +26,12 @@ sub new { PPI::Document->new( $_[ 1 ] ) }
 package PPI::Document;
 
 use strict;
+
+=method index_lines
+
+Call this method to index the lines for the new PPI::Document.
+
+=cut
 
 sub index_lines {
 
@@ -106,6 +76,35 @@ sub index_lines {
   }
 } ## end sub index_lines
 
+=method line_type
+
+Call this method with a line number, it will return one of
+
+  BEGIN CHECK UNITCHECK INIT END POD __DATA__ __END__
+
+or
+
+  <PackageName>::<SubName>
+
+=cut
+
 sub line_type { $_[ 0 ]->{ 'line' } || '' }
 
 1;
+
+=head1 SYNOPSIS
+
+  #!/usr/bin/perl
+  use strict;
+  use warnings;
+  use PPIx::IndexLines;
+  my $document = PPIx::IndexLines->new( +shift );
+  $document->index_lines;
+  print $document->line_type( +shift );
+
+=head1 SEE ALSO
+
+L<PPIx::IndexOffsets>
+L<PPIx::LineToSub>
+
+=cut
