@@ -23,10 +23,6 @@ parsed directly.
 
 sub new { PPI::Document->new( $_[ 1 ] ) }
 
-package PPI::Document;
-
-use strict;
-
 =method index_lines
 
 Call this method to index the lines for the new PPI::Document.
