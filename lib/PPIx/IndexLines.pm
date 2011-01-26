@@ -5,6 +5,8 @@ package PPIx::IndexLines;
 use strict;
 
 use PPI;
+use Scalar::Util 'blessed';
+
 
 # VERSION
 
@@ -14,14 +16,14 @@ Accepts either a scalar or a scalar reference.  This is passed directly to
 PPI::Document::new, so the same rules as in that method apply.
 
 Basically, if you pass in a scalar, it will be assumed to be a filename and
-said file will be loaded.
+said file will be loaded and parsed.
 
 Otherwise, a scalar reference is assumed to be a PPI document and will be
 parsed directly.
 
 =cut
 
-sub new { PPI::Document->new( $_[ 1 ] ) }
+sub new { bless { 'document' => PPI::Document->new( $_[ 1 ] ) }, $_[ 0 ] }
 
 =method index_lines
 
@@ -32,8 +34,7 @@ Call this method to index the lines for the new PPI::Document.
 sub index_lines {
 
   my $self = shift;
-
-  my @el = $self->elements;
+  my $document = $self->{ 'document' };
 
   my $package = 'main';
   my $info;
@@ -55,7 +56,7 @@ sub index_lines {
 
   my $last_line_number = 0;
 
-  for my $e ( @el ) {
+  for my $e ( $document->elements ) {
 
     my $line_number = $e->line_number;
 
@@ -84,7 +85,7 @@ or
 
 =cut
 
-sub line_type { $_[ 0 ]->{ 'line' } || '' }
+sub line_type { $_[ 0 ]->{ 'line' }{ $_[ 1 ] } || '' }
 
 1;
 
