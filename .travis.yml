@@ -1,3 +1,5 @@
+# Check this file against http://lint.travis-ci.org/ before commiting!
+
 language: perl
 perl:
   - "5.19"
@@ -11,15 +13,13 @@ branches:
   only:
     - release
     - gh-pages
-env:
-  - AUTHOR_TESTING=1
-  - RELEASE_TESTING=1
+env: AUTHOR_TESTING=1 RELEASE_TESTING=1
 notifications:
-  recipients:
-    - travisci@harleypig.com
   email:
     on_success: change
     on_failure: always
+    recipients:
+      - travisci@harleypig.com
 before_install:
   cpanm -n Devel::Cover::Report::Coveralls
 script:
