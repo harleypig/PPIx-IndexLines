@@ -1,3 +1,5 @@
+# Check this file against http://lint.travis-ci.org/ before commiting!
+
 language: perl
 perl:
   - "5.19"
