@@ -21,6 +21,6 @@ notifications:
     recipients:
       - travisci@harleypig.com
 before_install:
-  cpanm -n Devel::Cover::Report::Coveralls
+    cpanm -n Devel::Cover::Report::Coveralls Test::Perl::Critic Test::CPAN::Meta Test::EOL Test::HasVersion Test::NoTabs Pod::Coverage::TrustPod Test::Spelling Test::Synopsis Test::Vars
 script:
   perl Build.PL && ./Build build && cover -test -report coveralls
